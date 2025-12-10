@@ -1,20 +1,28 @@
-empty_list=[]
-for i in range (1,101):
+import random
+
+empty_list = []
+for i in range(1, 101):
     empty_list.append(str(i))
-empty_list=set(empty_list)
-empty_list=list(empty_list)
-random_num=int(empty_list[0])
 
-for i in range(1,6):
-    value=int(input('Enter the value:'))
-    if value==random_num:
-        print('You win')
+empty_list = set(empty_list)
+empty_list = list(empty_list)
+random_num = int(empty_list[0])
+
+print("🎲 Welcome to the Guessing Game! 🎲")
+print("You have 5 chances to guess the correct number between 1 and 100. 🤞")
+
+for i in range(1, 5 + 1):
+    value = int(input('Enter your guess: '))
+    
+    if value == random_num:
+        print('🎉🎊 You win! Congratulations! 🎊🎉')
         break
-    elif value<random_num:
-        print('Your guess is too low.')
+    elif value < random_num:
+        print('⬆️ Your guess is too low.')
     else:
-        print('Your guess is too high.')
-
-    print(f"Now your Attempts left: {5-i}")
+        print('⬇️ Your guess is too high.')
+    
+    print(f"💡 Attempts left: {5-i}\n")
 else:
-    print(f"Sorry,you lost your chance! the correct number was {random_num}.")
+    print(f'😢 Sorry, you lost! The correct number was {random_num}.')
+
